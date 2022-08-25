@@ -12,7 +12,7 @@ int binary_tree_is_full(const binary_tree_t *tree)
 
 	/* if binary tree node is NULL then it is a full binary tree */
 	if (tree == NULL)
-		return (1);
+		return (0);
 
 	/* if binary tree node does have empty left and right sub-trees */
 	/* (if leaf node) */
