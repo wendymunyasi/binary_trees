@@ -84,4 +84,10 @@ void node_height(const binary_tree_t *tree, int n, int *height);
 /* 15-binary_tree_is_full.c */
 int binary_tree_is_full(const binary_tree_t *tree);
 
+/* 16-binary_tree_is_perfect.c */
+int binary_tree_is_perfect(const binary_tree_t *tree);
+void tree_stats(const binary_tree_t *tree, size_t n,
+	size_t *leaves, size_t *height);
+
+
 #endif /* _BINARY_TREES_H_ */
