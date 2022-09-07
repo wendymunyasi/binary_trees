@@ -78,6 +78,6 @@ Learn about binary trees and binary search trees.
 * **18. Uncle** - Write a function that finds the uncle of a node. - `18-binary_tree_uncle.c`.
 
 
-### Collaborate
+## Collaborate
 
 To collaborate, reach me through my email address wendymunyasi@gmail.com.
