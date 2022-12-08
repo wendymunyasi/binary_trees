@@ -9,7 +9,7 @@
  */
 bst_t *bst_remove(bst_t *root, int value)
 {
-	bst_t *tmp = NULL, *tmp2 = NULL;
+	bst_t *tmp;
 
 	if (!root)
 		return (NULL);
@@ -40,13 +40,33 @@ bst_t *bst_remove(bst_t *root, int value)
 		* If the node has both a left and right child then find the minimum
 		* value in the right subtree.
 		*/
-		tmp2 = root->right;
-		while (tmp2->left)
-			tmp2 = tmp2->left;
+		tmp = bst_min_node(root->right);
 		/* replace the value of the node to remove with the minimum value. */
-		root->n = tmp2->n;
+		root->n = tmp->n;
 		/* recursively call the func on right subtree to remove min value node. */
-		root->right = bst_remove(root->right, tmp2->n);
+		root->right = bst_remove(root->right, tmp->n);
 	}
 	return (root); /* return the root */
 }
+
+/**
+ * bst_min_node - finds the minimum node in a binary search tree.
+ * @root: pointer to the root node of the tree to traverse.
+ *
+ * Return: pointer to the minimum node
+ */
+bst_t *bst_min_node(bst_t *root)
+{
+	bst_t *tmp;
+
+	/* Assign the address of the root node to the tmp pointer. */
+	tmp = root;
+
+	/* Loop until the left node of the tmp pointer is NULL. */
+	while (tmp->left != NULL)
+		tmp = tmp->left;
+	/* Return the address of the tmp pointer. */
+	return (tmp);
+}
+
+/* CODE DOESN'T PASS ALL CHECKS */

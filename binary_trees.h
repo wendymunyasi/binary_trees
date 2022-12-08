@@ -123,5 +123,6 @@ bst_t *bst_search(const bst_t *tree, int value);
 
 /* 114-bst_remove.c */
 bst_t *bst_remove(bst_t *root, int value);
+bst_t *bst_min_node(bst_t *root);
 
 #endif /* _BINARY_TREES_H_ */
