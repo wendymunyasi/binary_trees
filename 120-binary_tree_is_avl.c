@@ -88,3 +88,5 @@ int binary_tree_is_avl(const binary_tree_t *tree)
 	/* If the right subtree is balanced, return 1. */
 	return (1);
 }
+
+/* CODE DOESN'T PASS ALL CHECKS */
