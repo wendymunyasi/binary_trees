@@ -8,13 +8,24 @@
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
+	/* If the tree is empty, return 0. */
 	if (!tree)
 		return (0);
-	if (tree->left && tree->left->n > tree->n)
-		return (0);
-	if (tree->right && tree->right->n > tree->n)
-		return (0);
-	if (!binary_tree_is_heap(tree->left) || !binary_tree_is_heap(tree->right))
-		return (0);
-	return (1);
+
+	/* If the tree has no children, return 1. */
+	if (!tree->left && !tree->right)
+		return (1);
+
+	/*  If the tree has children, */
+	if (tree->left && tree->right)
+	{
+		/* Check if the parent is greater than both children. */
+		if (tree->n >= tree->left->n && tree->n >= tree->right->n)
+
+			/* If yes, recursively check the left and right subtrees. */
+			return (binary_tree_is_heap(tree->left) &&
+				binary_tree_is_heap(tree->right));
+	}
+	/* If the parent is not greater than both children, return 0. */
+	return (0);
 }
