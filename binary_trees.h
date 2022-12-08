@@ -125,4 +125,9 @@ bst_t *bst_search(const bst_t *tree, int value);
 bst_t *bst_remove(bst_t *root, int value);
 bst_t *bst_min_node(bst_t *root);
 
+/* 120-binary_tree_is_avl.c */
+int binary_tree_is_avl(const binary_tree_t *tree);
+size_t binary_tree_height(const binary_tree_t *tree);
+int binary_tree_balance(const binary_tree_t *tree);
+
 #endif /* _BINARY_TREES_H_ */
