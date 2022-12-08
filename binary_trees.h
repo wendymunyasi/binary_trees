@@ -130,4 +130,7 @@ int binary_tree_is_avl(const binary_tree_t *tree);
 size_t binary_tree_height(const binary_tree_t *tree);
 int binary_tree_balance(const binary_tree_t *tree);
 
+/* 130-binary_tree_is_heap.c */
+int binary_tree_is_heap(const binary_tree_t *tree);
+
 #endif /* _BINARY_TREES_H_ */
