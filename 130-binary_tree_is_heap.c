@@ -12,42 +12,25 @@ int binary_tree_is_heap(const binary_tree_t *tree)
 	if (!tree)
 		return (0);
 
-	/* If the tree has no children, return 1. */
+	/* If tree isn't empty check if the left child is less than the parent. */
+	if (tree->left && tree->n < tree->left->n)
+		/* If it is, return 0 */
+		return (0);
+
+	/* Check if the right child is less than the parent. If it is, return 0. */
+	if (tree->right && tree->n < tree->right->n)
+		return (0);
+
+	/* Check if the left and right child are empty. If they are, return 1. */
 	if (!tree->left && !tree->right)
 		return (1);
-
-	/*  If the tree has two children, */
+	
+	/* Check if the left and right child are not empty. */
 	if (tree->left && tree->right)
-	{
-		/*
-		* Check if the left child is less than the parent and the right
-		* child is less than the parent.
-		*/
-		if (tree->left->n > tree->n)
-			return (0);
-		if (tree->right->n > tree->n)
-			return (0);
-		/* If yes, recursively check the left and right subtrees. */
+		/* If not, recurssively check the result of the left and right child. */
 		return (binary_tree_is_heap(tree->left) &&
 			binary_tree_is_heap(tree->right));
-	}
-	/* If the tree has only a left child */
-	if (tree->left)
-	{
-		/* Check if the left child is less than the parent. */
-		if (tree->left->n > tree->n)
-			return (0);
-		/* If so, recursively check the left subtree. */
-		return (binary_tree_is_heap(tree->left));
-	}
-	/* If the tree has only a right child */
-	if (tree->right)
-	{
-		if (tree->right->n > tree->n)
-			return (0);
-		/* If so, recursively check the right subtree. */
-		return (binary_tree_is_heap(tree->right));
-	}
-	/* If none of the above conditions are met, return 0. */
 	return (0);
 }
+
+/* CODE DOESN'T PASS ALL CHECKS */
