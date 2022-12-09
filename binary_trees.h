@@ -133,4 +133,7 @@ int binary_tree_balance(const binary_tree_t *tree);
 /* 130-binary_tree_is_heap.c */
 int binary_tree_is_heap(const binary_tree_t *tree);
 
+/* 131-heap_insert.c */
+heap_t *heap_insert(heap_t **root, int value);
+
 #endif /* _BINARY_TREES_H_ */
