@@ -3,8 +3,6 @@
 
 #include <stddef.h>
 #include <stdlib.h>
-#include <math.h>
-#include <stdio.h>
 
 /**
  * struct binary_tree_s - Binary tree node
@@ -130,11 +128,7 @@ bst_t *bst_min_node(bst_t *root);
 /* 120-binary_tree_is_avl.c */
 int binary_tree_is_avl(const binary_tree_t *tree);
 size_t binary_tree_height(const binary_tree_t *tree);
-int has_duplicates(const binary_tree_t *tree);
-int has_duplicates_2(const binary_tree_t *tree, int *values, int n);
-int count_occurrences(const int *array, int n, int value);
-const binary_tree_t *find_min(const binary_tree_t *tree);
-const binary_tree_t *find_max(const binary_tree_t *tree);
+int binary_tree_balance(const binary_tree_t *tree);
 
 /* 130-binary_tree_is_heap.c */
 int binary_tree_is_heap(const binary_tree_t *tree);
