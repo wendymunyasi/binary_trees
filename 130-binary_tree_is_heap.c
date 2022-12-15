@@ -8,47 +8,25 @@
  */
 int binary_tree_is_heap(const binary_tree_t *tree)
 {
-	/* Return 0 if tree is NULL */
-	if (tree == NULL)
-	{
+	/* If the tree is empty, return 0. */
+	if (!tree)
 		return (0);
-	}
-	/* Return 1 if tree is a leaf node (has no children) */
-	if (tree->left == NULL && tree->right == NULL)
-	{
+
+	/* If the tree has no children, return 1. */
+	if (!tree->left && !tree->right)
 		return (1);
-	}
 
-	/* Check if the left and right subtrees are valid Max Binary Heaps */
-	int is_left_heap = binary_tree_is_heap(tree->left);
-	int is_right_heap = binary_tree_is_heap(tree->right);
-
-	/* Return 0 if either subtree is not a valid Max Binary Heap */
-	if (!is_left_heap || !is_right_heap)
+	/* If the tree has children, */
+	if (tree->left && tree->right)
 	{
-		return (0);
-	}
+		/* check if the parent is greater than both children. */
+		if (tree->n >= tree->left->n && tree->n >= tree->right->n)
 
-	/* Check if the current node satisfies the Max Binary Heap property */
-	int is_heap = 1;
-
-	/* Check if the left child satisfies the Max Binary Heap property */
-	if (tree->left != NULL && tree->n < tree->left->n)
-	{
-		is_heap = 0;
+			/* If so, recursively check the left and right subtrees. */
+			return (binary_tree_is_heap(tree->left) &&
+				binary_tree_is_heap(tree->right));
 	}
-	/* Check if the right child satisfies the Max Binary Heap property */
-	if (tree->right != NULL && tree->n < tree->right->n)
-	{
-		is_heap = 0;
-	}
-
-	/**
-	 * Return 1 if the current node satisfies the Max Binary Heap property,
-	 * and 0 otherwise
-	 */
-	return (is_heap);
+	return (0);
 }
-
 
 /* CODE DOESN'T PASS ALL CHECKS */
